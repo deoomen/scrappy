@@ -1,2 +1,5 @@
 # VSCode stuff
 .history
+
+# Python stuff
+__pycache__
