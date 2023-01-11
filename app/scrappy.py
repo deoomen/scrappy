@@ -34,7 +34,10 @@ class Scrappy:
             try:
                 klass = globals()[classname]
                 scrapMe = klass()
+
+                logging.info('[SCRAPPY] "' + classname + '" scrapping started')
                 scrapMe.scrap()
+                logging.info('[SCRAPPY] "' + classname + '" scrapping ended')
             except Exception:
                 logging.exception('[SCRAPPY] An exception occured during "' + classname + '" scrapping')
 
