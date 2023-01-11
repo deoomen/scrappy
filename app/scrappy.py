@@ -27,7 +27,7 @@ class Scrappy:
         if not scrapMeList:
             scrapMeList = next(walk('./ScrapMe'), (None, None, []))[2]
             scrapMeList.remove('__init__.py')
-            scrapMeList.remove('ScrapMeInterface.py')
+            scrapMeList.remove('ScrapMe.py')
             scrapMeList = [n[:-3] for n in scrapMeList]
 
         for classname in scrapMeList:

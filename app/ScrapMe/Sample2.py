@@ -1,4 +1,4 @@
-from ScrapMe.ScrapMeInterface import ScrapMeInterface
+from ScrapMe.ScrapMe import ScrapMe
 
-class Sample2(ScrapMeInterface):
+class Sample2(ScrapMe):
     pass
