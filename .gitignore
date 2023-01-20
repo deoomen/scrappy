@@ -3,3 +3,10 @@
 
 # Python stuff
 __pycache__
+
+# ScrapMe subrepo stuff
+app/ScrapMe/*
+!app/ScrapMe/__init__.py
+!app/ScrapMe/FakePythonJobs.py
+!app/ScrapMe/Sample1.py
+!app/ScrapMe/Sample2.py
