@@ -60,3 +60,9 @@ class MyScrapScriptClass(ScrapMe):
 ```
 
 The base class `ScrapMe` uses the [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) library and contains a `_loadPage` method with which you can download the content of a web page. `_loadPage` method returns a `BeautifulSoup` object.
+
+In `app/ScrapMe` directory you can find three examples of usage:
+
+- `app/ScrapMe/Sample1.py` - just "Hello world"
+- `app/ScrapMe/Sample2.py` - this will throw an exception
+- `app/ScrapMe/FakePythonJobs.py` - this will scrap [Fake Pyhon Jobs](https://realpython.github.io/fake-jobs/) site
