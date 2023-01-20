@@ -10,3 +10,4 @@ app/ScrapMe/*
 !app/ScrapMe/FakePythonJobs.py
 !app/ScrapMe/Sample1.py
 !app/ScrapMe/Sample2.py
+!app/ScrapMe/ScrapMe.py
