@@ -34,7 +34,7 @@ class ScrapMe:
         return BeautifulSoup(response.content, parser)
 
     def _connectToDatabase(self) -> None:
-        envs = dotenv_values('ScrapMe/.env')
+        envs = dotenv_values('ScrapMe/.env.mongo')
         connectionString = 'mongodb://%s:%s@%s:%s/?authSource=%s' % (
             envs['DB_USER'],
             envs['DB_PASSWORD'],
