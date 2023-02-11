@@ -51,8 +51,12 @@ class ScrapMe:
             logging.exception('[SCRAPPY][ScrapMe] Cannot connect to MongoDB')
             raise exception
 
-    def _insert(self, collectionName: str, document: dict):
+    def _insert(self, collectionName: str, document: dict) -> str | None:
+        insertedId = None
+
         try:
-            self.__database[collectionName].insert_one(document)
+            insertedId = self.__database[collectionName].insert_one(document).inserted_id
         except pymongo.errors.DuplicateKeyError as exception:
             logging.warning('[SCRAPPY][ScrapMe] Duplicate index key in database in collection "%s", id: %s' % (collectionName, str(document['id'])))
+
+        return insertedId
