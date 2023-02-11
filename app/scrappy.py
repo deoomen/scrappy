@@ -15,7 +15,7 @@ class Scrappy:
 
         stdoutHandler = logging.StreamHandler(sys.stdout)
         stdoutHandler.setLevel(logging.DEBUG)
-        stdoutFormatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        stdoutFormatter = logging.Formatter('[%(asctime)s][%(name)s][%(levelname)s] - %(message)s - [%(module)s/%(filename)s::%(funcName)s:%(lineno)d]')
         stdoutHandler.setFormatter(stdoutFormatter)
 
         root.addHandler(stdoutHandler)
