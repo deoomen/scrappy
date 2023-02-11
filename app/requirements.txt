@@ -1,3 +1,4 @@
 beautifulsoup4
 requests-random-user-agent
 python-dotenv
+pymongo
