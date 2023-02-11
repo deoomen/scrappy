@@ -15,7 +15,7 @@ docker compose up
 ### Python environment
 
 ```sh
-pip install --no-cache-dir -r requirements.txt
+pip install --no-cache-dir -r requirements.txt -r tools/requirements.txt -r scripts/requirements.txt
 ```
 
 ## Usage
@@ -46,12 +46,12 @@ python scrappy.py Script1 Script2 Script3 ...
 
 ## Custom additional scripts
 
-The scraping scripts should be placed in folder `app/ScrapMe`. Each script must be a class that extends the base class `ScrapMe` and implement `scrap` method.
+The scraping scripts should be placed in folder `app/scripts`. Each script must be a class that extends the base class `ScrapMe` and implement `scrap` method.
 
 ```py
 # app/ScrapMe/MyScrapScriptClass.py
 
-from ScrapMe.ScrapMe import ScrapMe
+from tools.ScrapMe import ScrapMe
 
 class MyScrapScriptClass(ScrapMe):
 
@@ -61,8 +61,8 @@ class MyScrapScriptClass(ScrapMe):
 
 The base class `ScrapMe` uses the [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) library and contains a `_loadPage` method with which you can download the content of a web page. `_loadPage` method returns a `BeautifulSoup` object.
 
-In `app/ScrapMe` directory you can find three examples of usage:
+In `app/scripts` directory you can find three examples of usage:
 
-- `app/ScrapMe/Sample1.py` - just "Hello world"
-- `app/ScrapMe/Sample2.py` - this will throw an exception
-- `app/ScrapMe/FakePythonJobs.py` - this will scrap [Fake Pyhon Jobs](https://realpython.github.io/fake-jobs/) site
+- `app/scripts/Sample1.py` - just "Hello world"
+- `app/scripts/Sample2.py` - this will throw an exception
+- `app/scripts/FakePythonJobs.py` - this will scrap [Fake Pyhon Jobs](https://realpython.github.io/fake-jobs/) site
