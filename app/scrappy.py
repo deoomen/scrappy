@@ -1,7 +1,8 @@
 import logging
 import sys
 from os import walk
-from ScrapMe import *
+from tools import *
+from scripts import *
 
 class Scrappy:
 
@@ -25,21 +26,24 @@ class Scrappy:
 
         # when no scrap list given, load&run all scrap files
         if not scrapMeList:
-            scrapMeList = next(walk('./ScrapMe'), (None, None, []))[2]
+            scrapMeList = next(walk('./scripts'), (None, None, []))[2]
             scrapMeList.remove('__init__.py')
-            scrapMeList.remove('ScrapMe.py')
-            scrapMeList = [n[:-3] for n in scrapMeList]
 
-        for classname in scrapMeList:
+        for scriptName in scrapMeList:
             try:
-                klass = globals()[classname]
+                if scriptName.endswith('.py'):
+                    scriptName = scriptName[:-3]
+                else:
+                    continue
+
+                klass = globals()[scriptName]
                 scrapMe = klass()
 
-                logging.info('[SCRAPPY] "' + classname + '" scrapping started')
+                logging.info('[SCRAPPY] "' + scriptName + '" scrapping started')
                 scrapMe.scrap()
-                logging.info('[SCRAPPY] "' + classname + '" scrapping ended')
+                logging.info('[SCRAPPY] "' + scriptName + '" scrapping ended')
             except Exception:
-                logging.exception('[SCRAPPY] An exception occured during "' + classname + '" scrapping')
+                logging.exception('[SCRAPPY] An exception occured during "' + scriptName + '" scrapping')
 
         logging.info('[SCRAPPY] Scrapping ended')
 

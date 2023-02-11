@@ -1,4 +1,4 @@
-from ScrapMe.ScrapMe import ScrapMe
+from tools.ScrapMe import ScrapMe
 
 class FakePythonJobs(ScrapMe):
 

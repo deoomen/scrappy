@@ -6,11 +6,10 @@
 __pycache__
 
 # ScrapMe subrepo stuff
-app/ScrapMe/*
-!app/ScrapMe/__init__.py
-!app/ScrapMe/FakePythonJobs.py
-!app/ScrapMe/Sample1.py
-!app/ScrapMe/Sample2.py
-!app/ScrapMe/ScrapMe.py
+app/scripts/*
+!app/scripts/__init__.py
+!app/scripts/FakePythonJobs.py
+!app/scripts/Sample1.py
+!app/scripts/Sample2.py
 
 .env*

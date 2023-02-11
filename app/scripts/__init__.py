@@ -4,7 +4,7 @@ from inspect import isclass
 from pkgutil import iter_modules
 from pathlib import Path
 from importlib import import_module
-from ScrapMe.ScrapMe import ScrapMe
+from tools.ScrapMe import ScrapMe
 
 # iterate through the modules in the current package
 package_dir = Path(__file__).resolve().parent
