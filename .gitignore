@@ -1,5 +1,6 @@
 # VSCode stuff
 .history
+.devcontainer
 
 # Python stuff
 __pycache__
