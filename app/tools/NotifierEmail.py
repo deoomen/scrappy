@@ -15,13 +15,10 @@ class NotifierEmail:
     def useSendMail(self) -> None:
         self.__smtp = smtplib.SMTP('localhost')
 
-    def send(self, title: str, content: str, contentType: str = 'plain') -> None:
+    def send(self, recipients: list, title: str, content: str, contentType: str = 'plain') -> None:
         try:
             envs = dotenv_values(ENV_FILE)
-
             sender = envs['EMAIL_SENDER']
-            recipients = envs['EMAIL_RECIPIENTS'].split(',')
-            recipients = list(filter(None, recipients))
 
             if 0 == len(recipients):
                 logging.warning('[SCRAPPY][NotifierEmail] Empty recipients list. Are you really want to send any e-mail?')
