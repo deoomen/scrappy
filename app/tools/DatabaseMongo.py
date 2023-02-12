@@ -35,3 +35,6 @@ class DatabaseMongo:
             logging.warning('[SCRAPPY][ScrapMe] Duplicate index key in database in collection "%s", id: %s' % (collectionName, str(document['id'])))
 
         return insertedId
+
+    def deleteById(self, collectionName: str, id: str):
+        self.__database[collectionName].delete_one({ '_id': id })
