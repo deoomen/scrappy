@@ -1,0 +1,24 @@
+name: deploy
+on: workflow_dispatch
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: app/
+    steps:
+      - uses: actions/checkout@v2
+      - name: Prepare files
+        run: |
+          find . -type f -not -name '__init__.py'-delete
+      - name: rsync files
+        uses: burnett01/rsync-deployments@5.2.1
+        with:
+          switches: -avzrt --delete
+          path: app/
+          remote_path: ${{ secrets.DEPLOY_PATH_TEST }}
+          remote_host: ${{ secrets.DEPLOY_HOST }}
+          remote_user: ${{ secrets.DEPLOY_USER }}
+          remote_key: ${{ secrets.DEPLOY_KEY }}
+          remote_key_pass: ${{ secrets.DEPLOY_KEY_PASS }}
