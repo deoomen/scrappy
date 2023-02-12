@@ -32,6 +32,8 @@ class NotifierEmail:
 
             self.__smtp.sendmail(sender, recipients, message.as_string())
             self.__smtp.quit()
+
+            logging.info('[SCRAPPY][NotifierEmail] An e-mail was sent')
         except Exception as exception:
             logging.exception('[SCRAPPY][NotifierEmail] Sending e-mail failed')
             raise exception
