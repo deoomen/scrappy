@@ -2,6 +2,9 @@
 .history
 .devcontainer
 
+# JetBrains IDE stuff
+.idea
+
 # Python stuff
 __pycache__
 
