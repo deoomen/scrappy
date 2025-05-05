@@ -1,4 +1,5 @@
 import logging
+import urllib.parse
 from dotenv import dotenv_values
 import pymongo
 
@@ -11,8 +12,8 @@ class DatabaseMongo:
     def connectToDatabase(self) -> None:
         envs = dotenv_values(ENV_FILE)
         connectionString = 'mongodb://%s:%s@%s:%s/?authSource=%s' % (
-            envs['DB_USER'],
-            envs['DB_PASSWORD'],
+            urllib.parse.quote_plus(envs['DB_USER']),
+            urllib.parse.quote_plus(envs['DB_PASSWORD']),
             envs['DB_HOST'],
             envs['DB_PORT'],
             envs['DB_NAME']
