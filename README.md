@@ -15,6 +15,9 @@ docker compose up
 ### Python environment
 
 ```sh
+cd app
+python -m venv .venv
+source .venv/bin/activate
 pip install --no-cache-dir -r requirements.txt -r tools/requirements.txt -r scripts/requirements.txt
 ```
 
